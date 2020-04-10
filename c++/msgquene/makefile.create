@@ -1,0 +1,21 @@
+TARGET := create 
+CC := g++
+
+BUILD_DIR := tmp
+INC_DIR := ./
+OBJECTS := create.o
+
+
+CFLAGS  := -g -Wall -std=c++11
+
+$(TARGET):$(OBJECTS)
+	$(CC) $(CFLAGS) -o $(TARGET) $(OBJECTS)
+	rm -f $(OBJECTS)
+
+create.o : create.cpp
+	$(CC)  $(CFLAGS) -c create.cpp
+
+.PHONY : clean
+clean:
+	rm -rf  create.o test
+

@@ -1,0 +1,21 @@
+TARGET := read 
+CC := g++
+
+BUILD_DIR := tmp
+INC_DIR := ./
+OBJECTS := read.o
+
+
+CFLAGS  := -g -Wall -std=c++11
+
+$(TARGET):$(OBJECTS)
+	$(CC) $(CFLAGS) -o $(TARGET) $(OBJECTS)
+	rm -f $(OBJECTS)
+
+read.o : read.cpp
+	$(CC)  $(CFLAGS) -c read.cpp
+
+.PHONY : clean
+clean:
+	rm -rf  read.o test
+

@@ -1,0 +1,21 @@
+TARGET := rm 
+CC := g++
+
+BUILD_DIR := tmp
+INC_DIR := ./
+OBJECTS := rm.o
+
+
+CFLAGS  := -g -Wall -std=c++11
+
+$(TARGET):$(OBJECTS)
+	$(CC) $(CFLAGS) -o $(TARGET) $(OBJECTS)
+	rm -f $(OBJECTS)
+
+rm.o : rm.cpp
+	$(CC)  $(CFLAGS) -c rm.cpp
+
+.PHONY : clean
+clean:
+	rm -rf  rm.o test
+

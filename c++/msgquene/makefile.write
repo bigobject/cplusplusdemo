@@ -1,0 +1,21 @@
+TARGET := write 
+CC := g++
+
+BUILD_DIR := tmp
+INC_DIR := ./
+OBJECTS := write.o
+
+
+CFLAGS  := -g -Wall -std=c++11
+
+$(TARGET):$(OBJECTS)
+	$(CC) $(CFLAGS) -o $(TARGET) $(OBJECTS)
+	rm -f $(OBJECTS)
+
+write.o : write.cpp
+	$(CC)  $(CFLAGS) -c write.cpp
+
+.PHONY : clean
+clean:
+	rm -rf  write.o test
+
